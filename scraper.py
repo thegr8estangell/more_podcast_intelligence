@@ -297,7 +297,7 @@ def scrape_spotify():
                     "q":      query,
                     "type":   "show",
                     "market": "US",
-                    "limit":  3,
+                    "limit":  5,
                 },
                 timeout=15,
             )
@@ -317,9 +317,9 @@ def scrape_spotify():
                         "url":    show.get("external_urls", {}).get("spotify", ""),
                         "iheart": check_iheart(title, show.get("publisher", "")),
                     })
-                if len(top_shows) >= 5:
+                if len(top_shows) >= 20:
                     break
-            if len(top_shows) >= 5:
+            if len(top_shows) >= 20:
                 break
             time.sleep(0.3)
 
@@ -346,7 +346,7 @@ def scrape_spotify():
                     "q":      query,
                     "type":   "show",
                     "market": "US",
-                    "limit":  4,
+                    "limit":  5,
                 },
                 timeout=15,
             )
@@ -366,11 +366,11 @@ def scrape_spotify():
                         "url":    show.get("external_urls", {}).get("spotify", ""),
                         "iheart": check_iheart(title, show.get("publisher", "")),
                     })
-            if len(editors) >= 6:
+            if len(editors) >= 10:
                 break
             time.sleep(0.3)
 
-        results["editors_pick"] = editors[:6]
+        results["editors_pick"] = editors[:10]
         print(f"  ✅ Spotify editors pick: {len(results['editors_pick'])}")
 
     except Exception as e:
@@ -391,13 +391,7 @@ def scrape_youtube():
 
     try:
         chromium_path = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH")
-        if not chromium_path:
-            for p in ["/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome"]:
-                import shutil
-                if shutil.which(p.split("/")[-1]):
-                    chromium_path = p
-                    break
-        launch_kwargs = {"headless": True, "args": ["--no-sandbox", "--disable-dev-shm-usage"]}
+        launch_kwargs = {"headless": True}
         if chromium_path:
             launch_kwargs["executable_path"] = chromium_path
 
@@ -450,7 +444,7 @@ def scrape_youtube():
                     "url":    href,
                     "iheart": check_iheart(title),
                 })
-            if len(results["top_shows"]) >= 10:
+            if len(results["top_shows"]) >= 20:
                 break
 
         # Fallback: try embedded JSON

@@ -281,7 +281,7 @@ def build_email(data: dict) -> str:
         {"label": "iHeart",       "count": sum(1 for s in sp_editors + sp_shows if s.get("iheart")), "accent": RED},
     ])
     if sp_editors and sp_shows:
-        sp_body = two_col_section("Editors Pick", sp_editors, "Top 5 Shows", sp_shows, SPOTIFY_GREEN)
+        sp_body = two_col_section("Editors Pick", sp_editors, "Top 20 Shows", sp_shows, SPOTIFY_GREEN)
     elif sp_shows:
         sp_body = full_width_list("Top 5 Shows", sp_shows, SPOTIFY_GREEN)
     else:
@@ -296,7 +296,7 @@ def build_email(data: dict) -> str:
         {"label": "Top Shows", "count": len(yt_shows), "accent": YOUTUBE_RED},
         {"label": "iHeart",    "count": sum(1 for s in yt_shows if s.get("iheart")), "accent": RED},
     ])
-    yt_body = full_width_list("Top 10 Shows", yt_shows, YOUTUBE_RED) if yt_shows else \
+    yt_body = full_width_list("Top 20 Shows", yt_shows, YOUTUBE_RED) if yt_shows else \
         "<tr><td style='padding:16px;color:#999;font-size:13px;'>No data available this week.</td></tr>"
 
     # ── PODCAST INDEX ────────────────────────
