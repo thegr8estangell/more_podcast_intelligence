@@ -391,7 +391,13 @@ def scrape_youtube():
 
     try:
         chromium_path = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH")
-        launch_kwargs = {"headless": True}
+        if not chromium_path:
+            for p in ["/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome"]:
+                import shutil
+                if shutil.which(p.split("/")[-1]):
+                    chromium_path = p
+                    break
+        launch_kwargs = {"headless": True, "args": ["--no-sandbox", "--disable-dev-shm-usage"]}
         if chromium_path:
             launch_kwargs["executable_path"] = chromium_path
 
