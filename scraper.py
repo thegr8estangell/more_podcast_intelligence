@@ -323,9 +323,9 @@ def scrape_spotify():
                 break
             time.sleep(0.3)
 
-        for i, show in enumerate(top_shows[:5], 1):
+        for i, show in enumerate(top_shows[:20], 1):
             show["rank"] = i
-        results["top_shows"] = top_shows[:5]
+        results["top_shows"] = top_shows[:20]
         print(f"  ✅ Spotify top shows: {len(results['top_shows'])}")
 
         # ── Editors Pick: featured/editorial shows ──
@@ -511,7 +511,7 @@ def scrape_podcast_index():
             "https://api.podcastindex.org/api/1.0/podcasts/trending",
             headers=headers,
             params={
-                "max":    10,
+                "max":    20,
                 "lang":   "en",
                 "since":  -604800,   # last 7 days
             },
