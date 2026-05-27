@@ -19,11 +19,15 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libdrm2 libatspi2.0-0t64 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libasound2t64
+
+      - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
-          playwright install chromium
-          sudo apt-get install -y libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 libdrm2 libatspi2.0-0t64 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libasound2t64
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=0 playwright install chromium --with-deps=false
 
       - name: Run scraper
         env:
@@ -52,4 +56,3 @@ jobs:
             podcast_data.json
             email_preview.html
           retention-days: 14
-
