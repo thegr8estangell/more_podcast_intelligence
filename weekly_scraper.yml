@@ -1,0 +1,55 @@
+name: Weekly Podcast Intelligence
+
+on:
+  schedule:
+    # Every Monday at 8:00 AM EST (13:00 UTC)
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+jobs:
+  scrape-and-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run scraper
+        env:
+          SPOTIFY_CLIENT_ID:     ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          PODCASTINDEX_KEY:      ${{ secrets.PODCASTINDEX_KEY }}
+          PODCASTINDEX_SECRET:   ${{ secrets.PODCASTINDEX_SECRET }}
+          GMAIL_EMAIL:           ${{ secrets.GMAIL_EMAIL }}
+          GMAIL_PASSWORD:        ${{ secrets.GMAIL_PASSWORD }}
+          REPORT_EMAIL:          ${{ secrets.REPORT_EMAIL }}
+        run: python scraper.py
+
+      - name: Send report
+        env:
+          GMAIL_EMAIL:    ${{ secrets.GMAIL_EMAIL }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          REPORT_EMAIL:   ${{ secrets.REPORT_EMAIL }}
+        run: python send_report.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: podcast-data-${{ github.run_id }}
+          path: |
+            podcast_data.json
+            email_preview.html
+          retention-days: 14

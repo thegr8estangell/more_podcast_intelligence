@@ -1,0 +1,94 @@
+{
+  "date": "2026-05-27",
+  "spotify": {
+    "editors_pick": [],
+    "top_shows": []
+  },
+  "youtube": {
+    "top_shows": [
+      {
+        "rank": 1,
+        "title": "PowerfulJRE",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLk1Sqn_f33KuWf3tW9BBe_4TP7x8l0m3T/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIp_bxswY&rs=AMzJL3lIte0luaz3dYnjUtK0-sviZUwPZg",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 2,
+        "title": "Last updated",
+        "author": "",
+        "image": "",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 3,
+        "title": "MeidasTouch",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PL36GQAccexbwFPOGmbf5pFE32VmyC7ui3/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYI_fHTqwY&rs=AMzJL3kDc1A0osbyrUNmx37BBXuvGdpvCA",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 4,
+        "title": "Dr Insanity",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLbuShuUyOZf38uFsn2BTTeUOiqpcH0fNS/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIwvW-wAY&rs=AMzJL3mkC2ZY_9f0VkIKHTQ5hvVgvY2b-A",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 5,
+        "title": "Kill Tony",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLD8Xk89jYzqSAjDsjIfndRA1uZKzwIxm-/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIn_nPwAY&rs=AMzJL3lcnURkNSeyXIux3umKl-9Gr5syEw",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 6,
+        "title": "Rotten Mango",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLsDkDDndB1qsQToK8Ec0E0F8x6iLHWv5O/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYI7aC4oQY&rs=AMzJL3lJNx2PdDHJh6uE4Cilm_b3LNOc8g",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 7,
+        "title": "Shawn Ryan Show",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PL4pqo9Uoh0WuUKxw0BmaK1yrg9Kd7E4lk/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIx6PUrwY&rs=AMzJL3nkfzzksZxHu1H97z-XaqWtxh52DQ",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 8,
+        "title": "Caleb Hammer",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLzJVLNWKVr6ksDjycE7NpSptOlcaEP-jQ/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIxP7GxQY&rs=AMzJL3nYsl2i3v1BimMr8GiZ6oIwa1-KDA",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 9,
+        "title": "Candace Owens",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PLPW2eH9z9CUt4vIcDk4IJTfW6mxpcJ7Ir/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYIzoyZzAY&rs=AMzJL3nZrMw8xpEurNmz3sWWbUo65ee3yA",
+        "url": "",
+        "iheart": false
+      },
+      {
+        "rank": 10,
+        "title": "The Diary Of A CEO",
+        "author": "",
+        "image": "https://i.ytimg.com/pl_c/PL22egh3ok4cP0T7UZRmP6TMLErZYWMN-l/studio_square_thumbnail.jpg?sqp=CMis3NAG-oaymwEICHgQeCAASFqi85f_AwYI2uy3ugY&rs=AMzJL3kVmpksaBQ6AuVOIlXmFAjza8XPeQ",
+        "url": "",
+        "iheart": false
+      }
+    ]
+  },
+  "podcast_index": {
+    "top_shows": []
+  }
+}
