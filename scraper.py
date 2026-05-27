@@ -32,9 +32,29 @@ OWNED_NETWORKS = [
 ]
 
 HOWSTUFFWORKS_SHOWS = [
+    # Core Stuff shows
     "stuff you should know", "stuff you missed in history",
     "stuff they don't want you to know", "stuff mom never told you",
     "stuff to blow your mind", "brainstuff", "sciencestuff", "savor",
+    "short stuff", "stuff of genius",
+    # History & Science
+    "ridiculous history", "historic presidential sex scandals",
+    "the stuff of life", "fw:thinking", "forward thinking",
+    "howstuffworks now", "no such thing as a fish",
+    "american innovations", "american history tellers",
+    "american scandal", "american elections",
+    # Tech
+    "techstuff", "tech stuff", "techstuff daily",
+    "tech stuff daily", "jonathan strickland",
+    # Food & Lifestyle
+    "car stuff", "money stuff", "ufo chronicles",
+    "choose your own crime", "cold", "invention",
+    "criminalia", "part-time genius",
+    # Hosts
+    "josh clark", "chuck bryant", "ben bowlin",
+    "matt frederick", "noel brown", "holly frey", "tracy wilson",
+    "robert lamb", "joe mccormick", "anney reese", "samantha skelton",
+    "lauren vogelbaum",
 ]
 
 COOL_ZONE_SHOWS = [
@@ -186,6 +206,16 @@ CULTURE_SHOWS = [
     "brown ambition", "good game with sarah spain",
     "latino usa", "radio ambulante", "american history hotline", "hungry for history",
     "the official yellowstone podcast", "no grip", "earn your leisure",
+    "giggly squad", "paige desorbo", "hannah berner",
+    "good hang with amy poehler", "amy poehler",
+    "pablo torre finds out", "pablo torre",
+    "the mel robbins podcast", "mel robbins",
+    "call her daddy", "alex cooper",
+    "women who travel", "smart girl dumb questions",
+    "song exploder", "hrishikesh hirway",
+    "pod meets twirld", "ridiculous history",
+    "the black mother wound",
+    "suite 305", "lele pons",
 ]
 
 NETFLIX_PARTNERSHIP_SHOWS = [
@@ -512,6 +542,7 @@ def scrape_podcast_index():
             headers=headers,
             params={
                 "max":    20,
+                "limit":  20,
                 "lang":   "en",
                 "since":  -604800,   # last 7 days
             },
@@ -523,7 +554,7 @@ def scrape_podcast_index():
 
         feeds = r.json().get("feeds", [])
 
-        for i, feed in enumerate(feeds[:10], 1):
+        for i, feed in enumerate(feeds[:20], 1):
             title  = feed.get("title", "")
             author = feed.get("author", feed.get("ownerName", ""))
             img    = feed.get("image", feed.get("artwork", ""))
