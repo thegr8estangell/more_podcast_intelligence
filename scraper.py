@@ -448,6 +448,13 @@ def scrape_youtube():
                             "EntityRowRenderer", "MusicResponsiveListItemRenderer"])
         )
 
+        # UI text / metadata labels to exclude
+        YT_BLOCKLIST = {
+            "last updated", "updated", "top podcasts", "trending",
+            "charts", "weekly", "watchtime", "rank", "show", "title",
+            "more", "see all", "load more", "next", "previous",
+        }
+
         seen = set()
         for row in rows:
             title_el = row.find(
@@ -464,7 +471,7 @@ def scrape_youtube():
             if href and not href.startswith("http"):
                 href = "https://www.youtube.com" + href
 
-            if title and title not in seen and len(title) > 2:
+            if title and title not in seen and len(title) > 2 and title.lower() not in YT_BLOCKLIST:
                 seen.add(title)
                 results["top_shows"].append({
                     "rank":   len(results["top_shows"]) + 1,
